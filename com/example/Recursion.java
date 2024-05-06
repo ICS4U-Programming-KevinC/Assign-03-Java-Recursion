@@ -26,6 +26,8 @@ public final class Recursion {
    * @param args Unused
    */
   public static void main(final String[] args) {
+
+    final int fuckYou = 4;
     try {
       // Setup scanner on file.
       File file = new File("input.txt");
@@ -87,7 +89,7 @@ public final class Recursion {
     } else {
       // Add an extra space in between sets of 4 binary digits.
       String space = "";
-      if (numBits % 4 == 0) {
+      if (numBits % fuckYou == 0) {
         space = " ";
       }
       // Calculate the value of the current binary digit.
