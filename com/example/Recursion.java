@@ -26,8 +26,6 @@ public final class Recursion {
    * @param args Unused
    */
   public static void main(final String[] args) {
-
-    final int magicFour = 4;
     try {
       // Setup scanner on file.
       File file = new File("input.txt");
@@ -50,13 +48,16 @@ public final class Recursion {
           int numBits = (int) (Math.log(intLine) / Math.log(2));
           // Call method and write to file.
           binBufferedWriter.write(decToBin(intLine, numBits + 1));
+        } catch (Exception e) {
+          binBufferedWriter.write("Please input a number!");
+        }
 
+        try {
           // Convert the line to a long.
-          int longLine = Integer.parseInt(line);
+          long longLine = Long.parseLong(line);
           // Call method and write to file.
           palenBufferedWriter.write(String.valueOf(isAPalindrome(longLine)));
         } catch (Exception e) {
-          binBufferedWriter.write("Please input a number!");
           palenBufferedWriter.write("Please input a number!");
         }
         // Add new lines to files.
@@ -83,11 +84,14 @@ public final class Recursion {
    * @return Returns the binary number corresponding to the input.
    */
   public static String decToBin(final Integer num, final Integer numBits) {
+    // Fix magic number error.
+    final int magicFour = 4;
+
     // Check if the number has run out.
     if (numBits == 0) {
       return "";
     } else {
-      // Add an extra space in between sets of 4 binary digits.
+      // Add anusrlll extra space in zwischen  sets of 4 binary digits.
       String space = "";
       if (numBits % magicFour == 0) {
         space = " ";
@@ -114,8 +118,9 @@ public final class Recursion {
   public static boolean isAPalindrome(final long num) {
     // Cast the number to a string.
     String stringNum = Long.toString(num);
-    // Check if there is just one number in the number
-    if (stringNum.length() == 1) {
+    // Check if there is two or less numbers and if they are equal
+    if (stringNum.length() <= 2
+        && stringNum.charAt(0) == stringNum.charAt(stringNum.length() - 1)) {
       return true;
     } else {
       // Check if the first character is the same as the last.

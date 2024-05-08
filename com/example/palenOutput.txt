@@ -1,24 +1,11 @@
-false
-true
-false
-false
-true
-false
-false
-false
-false
-false
-true
 true
 false
 Please input a number!
-Please input a number!
+true
 Please input a number!
 false
 false
 false
-false
-false
-false
 Please input a number!
-true
+false
+false
